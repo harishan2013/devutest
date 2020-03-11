@@ -1,0 +1,25 @@
+image: maven:latest
+stages:
+  - test
+  - deploy
+
+# This is the name of the job.
+# You can choose it freely.
+maven_build:
+  # A job is always executed within a stage.
+  # If no stage is set, it defaults to 'test'.
+  stage: test
+  # Here you can execute arbitrate terminal commands.
+  # If any of the commands returns a non zero exit code the job fails.
+  script:
+    - echo "Maven build started"
+    - mvn verify
+    
+build_deploy:
+  stage: deploy
+  script: 
+     - echo "Maven Deploy"
+     - mvn clean package
+  artifacts:
+    paths:
+      - target/*.jar
