@@ -2,7 +2,7 @@
 
 setlocal EnableDelayedExpansion
 
-for /f %%v in ('git describe --tags') do (
+for /f %%v in ('git describe --tags --abbrev^=0') do (
 set version=%%v
 )
 echo %version%
