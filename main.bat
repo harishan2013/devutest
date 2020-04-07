@@ -30,5 +30,5 @@ git remote set-url origin https://hariharan:bgx8xs9PiEDJgpG-UQwT@gitlab.com/bran
 git config --global user.email 'harsha.link@gmail.com'
 git config --global user.name 'hariharan'
 git tag %version% -m "Development"
-git push origin --tags
+git push origin %version%
 
