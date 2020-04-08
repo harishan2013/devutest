@@ -10,7 +10,7 @@ setlocal EnableDelayedExpansion
 for /f %%v in ('git describe --tags --abbrev^=0') do (
 set version=%%v
 )
-echo "one!"
+echo "onej!"
 echo %version%
 
 SET /p buildtag=<versiontag.txt
