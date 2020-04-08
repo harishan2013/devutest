@@ -25,9 +25,5 @@ for /f "tokens=1-3 delims=." %%a in ("%version%") do (
 echo "two"
 echo %version%
 
-git remote -v 
-git remote set-url origin https://hariharan:bgx8xs9PiEDJgpG-UQwT@gitlab.com/branch-icx/projecticx4.git
-git config --global user.email 'harsha.link@gmail.com'
-git config --global user.name 'hariharan'
 git tag -a %version% -m ""
 git push origin --tags
