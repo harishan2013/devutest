@@ -30,5 +30,4 @@ for /f "tokens=1-3 delims=." %%a in ("%version%") do (
 echo "two"
 echo %version%
 
-git tag -a %version% -m ""
-git push origin --tags
+git push origin %version%
