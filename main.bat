@@ -27,7 +27,7 @@ for /f "tokens=1-3 delims=." %%a in ("%version%") do (
   set version=%%a.%%b.!build!
 )
 
-echo "two"
+echo "twoo"
 echo %version%
 git tag -a %version% -m ""
 
