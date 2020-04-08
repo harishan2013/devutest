@@ -24,6 +24,8 @@ for /f "tokens=1-3 delims=." %%a in ("%version%") do (
 
 echo "two"
 echo %version%
-
+git remote -v 
+git config --global user.email 'harsha.link@gmail.com'
+git config --global user.name 'hariharan'
 git tag -a %version% -m ""
 git push origin --tags
