@@ -67,7 +67,7 @@ if %buildtag% gtr %bversion% (set version=%buildtag%)
 echo %buildtag%
 echo %version%
 
-echo "Push the new tag"
+echo "Push the new tag to repo"
 
 git tag -a %version% -m ""
 git push origin %version%
