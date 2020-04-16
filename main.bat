@@ -7,6 +7,8 @@ git remote set-url origin https://hariharan:bgx8xs9PiEDJgpG-UQwT@gitlab.com/bran
 git config --global user.email 'harsha.link@gmail.com'
 git config --global user.name 'hariharan'
 
+echo "Check the latest tag from the list"
+
 for /f %%a in ('git describe --abbrev^=0') do (
 set version0=%%a
 )
@@ -65,6 +67,7 @@ if %buildtag% gtr %bversion% (set version=%buildtag%)
 echo %buildtag%
 echo %version%
 
+echo "Push the new tag"
 
 git tag -a %version% -m ""
 git push origin %version%
