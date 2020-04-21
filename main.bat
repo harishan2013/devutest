@@ -7,7 +7,7 @@ git remote set-url origin https://hariharan:bgx8xs9PiEDJgpG-UQwT@gitlab.com/bran
 git config --global user.email 'harsha.link@gmail.com'
 git config --global user.name 'hariharan'
 
-echo "Check the latest tag from the global listssdus"
+echo "lCheck the latest tag from the global listssdus"
 
 for /f %%a in ('git describe --abbrev^=0') do (
 set version0=%%a
