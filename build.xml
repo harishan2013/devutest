@@ -40,12 +40,13 @@
 		</javac>
 	</target>
 	
-	  <target name="test-compile" depends="compile">
+    <target name="test-compile" depends="compile">
     <mkdir dir="build/test-classes" />
     <javac srcdir="test" destdir="build/test-classes">
       <classpath>
         <pathelement path="build/classes"/>
         <pathelement path="lib/junit.jar"/>
+        <pathelement path="lib/compile/servlet-api-3.1.jar"/>
       </classpath>
     </javac>
   </target>
