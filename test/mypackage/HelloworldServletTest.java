@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServlet;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
 
