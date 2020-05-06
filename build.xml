@@ -54,11 +54,7 @@
     <mkdir dir="build/test-reports"/>
     <jacoco:coverage enabled="${jacoco}" destfile="build/jacoco.exec">
       <junit printsummary="yes" haltonfailure="yes" fork="true" forkmode="once">
-        <classpath>
-          <fileset dir="lib" includes="*.jar" />
-          <pathelement path="build/classes" />
-          <pathelement path="build/test-classes" />
-        </classpath>
+        <classpath refid="classpath" />
         <formatter type="xml"/>
         <formatter type="plain"/>
         <batchtest fork="yes" todir="build/test-reports">
