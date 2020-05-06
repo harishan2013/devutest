@@ -3,8 +3,8 @@
 	
 	<!-- add servlets, filters and context listeners with annotations -->
 	
-	
-	<wedisplay-name>HelloworldServlet</display-name>
+	<display-name>HelloworldServlet</display-name>
+
 	<servlet>
 		<servlet-name>HelloworldServlet</servlet-name>
 		<servlet-class>mypackage.HelloworldServlet</servlet-class>
@@ -13,5 +13,5 @@
 	<servlet-mapping>
 		<servlet-name>HelloworldServlet</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>		
 </web-app>
