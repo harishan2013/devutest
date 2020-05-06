@@ -42,7 +42,7 @@
 	
 	 <target name="test-compile" depends="compile">
     <mkdir dir="build/test-classes" />
-    <javac srcdir="test" destdir="build/test-classes">
+    <javac srcdir="src/test" destdir="build/test-classes">
       <classpath>
         <pathelement path="build/classes"/>
         <pathelement path="lib/junit.jar"/>			
@@ -62,7 +62,7 @@
         <formatter type="xml"/>
         <formatter type="plain"/>
         <batchtest fork="yes" todir="build/test-reports">
-          <fileset dir="test">
+          <fileset dir="src/test">
             <include name="**/*Test*.java"/>
           </fileset>
         </batchtest>
