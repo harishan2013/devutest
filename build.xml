@@ -48,7 +48,9 @@
         <pathelement path="lib/junit.jar"/>
         <pathelement path="lib/compile/servlet-api-3.1.jar"/>
         <pathelement path="lib/compile/mockito-core-1.10.19.jar"/>	
-        <pathelement path="lib/compile/objenesis-3.1.jar"/>		
+        <pathelement path="lib/compile/objenesis-3.1.jar"/>
+        <pathelement path="lib/runtime/slf4j-api-1.7.5.jar"/>
+        <pathelement path="lib/runtime/slf4j-simple-1.7.5.jar"/>		
       </classpath>
     </javac>
   </target>
@@ -62,6 +64,8 @@
 		  <pathelement path="lib/compile/servlet-api-3.1.jar"/>
 		  <pathelement path="lib/compile/mockito-core-1.10.19.jar"/>
 		  <pathelement path="lib/compile/objenesis-3.1.jar"/>
+		  <pathelement path="lib/runtime/slf4j-api-1.7.5.jar"/>
+          <pathelement path="lib/runtime/slf4j-simple-1.7.5.jar"/>
           <pathelement path="build/classes" />
           <pathelement path="build/test-classes" />
         </classpath>
