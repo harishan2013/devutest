@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 public class HelloworldServletTest {
 
     private HelloworldServlet servlet;
-    
+
     @Mock
     private HttpServletRequest request;
 
@@ -25,17 +25,17 @@ public class HelloworldServletTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);        
-        servlet = new HelloworldServlet();        		
+        MockitoAnnotations.initMocks(this);
+        servlet = new HelloworldServlet();
     }
 
     @Test
     public void testDoGet() throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintWriter writer = new PrintWriter(out);
-        when(response.getWriter()).thenReturn(writer);		
+        when(response.getWriter()).thenReturn(writer);
 
         servlet.doGet(request, response);
-        assertEquals("Hello", new String( out.toByteArray(), "UTF-8"));
+        assertEquals("Test Report", new String( out.toByteArray(), "UTF-8"));
     }
 }

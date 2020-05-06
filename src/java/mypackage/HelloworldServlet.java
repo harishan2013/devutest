@@ -1,34 +1,19 @@
 package mypackage;
 
-import java.io.IOException;
-
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.eclipsesource.json.JsonObject;
-
-@WebServlet("/helloworld/*")
 public class HelloworldServlet extends HttpServlet {
-	private static final long serialVersionUID = -7759593256585062849L;
-	private static final Logger LOG = LoggerFactory.getLogger(HelloworldServlet.class);
 
-	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
-		LOG.info("serving request");
-		if ("json".equals(req.getParameter("format"))) {
-			LOG.info("special format for request {}", req);
-			resp.setContentType("application/json");
-			String json = new JsonObject().add("msg", "Hello").toString();
-			resp.getWriter().print(json);
-		} else {
-			resp.setContentType("text/plain");
-			resp.getWriter().println("Hello");
-		}
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain");
+        response.setStatus(404);
+        PrintWriter writer = response.getWriter();
+        writer.print("Test Report");
+        writer.close();
+    }
 }
