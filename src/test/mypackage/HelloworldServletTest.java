@@ -21,9 +21,7 @@ public class HelloworldServletTest {
 
     
     public void setUp() throws Exception {        
-        servlet = new HelloworldServlet();
-        servlet = new HttpServletRequest();
-        servlet = new HttpServletResponse();		
+        servlet = new HelloworldServlet();        		
     }
 
     @Test
