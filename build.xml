@@ -45,7 +45,8 @@
     <javac srcdir="src/test" destdir="build/test-classes">
       <classpath>
         <pathelement path="build/classes"/>
-        <pathelement path="lib/junit.jar"/>			
+        <pathelement path="lib/junit.jar"/>
+        <pathelement path="lib/compile/servlet-api-3.1.jar"/>		
       </classpath>
     </javac>
   </target>
@@ -56,6 +57,7 @@
       <junit printsummary="yes" haltonfailure="yes" fork="true" forkmode="once">
         <classpath>
           <fileset dir="lib" includes="*.jar" />
+		  <pathelement path="lib/compile/servlet-api-3.1.jar"/>
           <pathelement path="build/classes" />
           <pathelement path="build/test-classes" />
         </classpath>
