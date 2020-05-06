@@ -25,7 +25,7 @@ public class HelloworldServletTest {
 
     @Before
     public void setUp() throws Exception {
-         MockitoAnnotations.initMocks(this);        
+        MockitoAnnotations.initMocks(this);        
         servlet = new HelloworldServlet();        		
     }
 

@@ -24,7 +24,7 @@ public class HelloworldServlet extends HttpServlet {
 		if ("json".equals(req.getParameter("format"))) {
 			LOG.info("special format for request {}", req);
 			resp.setContentType("application/json");
-			String json = new JsonObject().add("msg", "Hello!").toString();
+			String json = new JsonObject().add("msg", "Hello").toString();
 			resp.getWriter().print(json);
 		} else {
 			resp.setContentType("text/plain");
