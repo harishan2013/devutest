@@ -1,4 +1,4 @@
-<project name="helloworld" default="war">
+<project name="helloworld" default="war" xmlns:jacoco="antlib:org.jacoco.ant">
 	<property name="src" location="src/java" />
 	<property name="libcompile" location="lib/compile" />
 	<property name="libruntime" location="lib/runtime" />
@@ -10,6 +10,10 @@
 	<property name="version" value="0.1-dev" />
 	<property name="source" value="1.7" />
 	<property name="target" value="1.7" />
+	
+	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+    <classpath path="lib/jacoco/jacocoant.jar"/>
+  </taskdef>
 
 	<path id="classpath">
 		<fileset dir="${libcompile}">
@@ -35,8 +39,59 @@
 			<classpath refid="classpath" />
 		</javac>
 	</target>
+	
+	 <target name="test-compile" depends="compile">
+    <mkdir dir="build/test-classes" />
+    <javac srcdir="test" destdir="build/test-classes">
+      <classpath>
+        <pathelement path="build/classes"/>
+        <pathelement path="lib/junit.jar"/>			
+      </classpath>
+    </javac>
+  </target>
 
-	<target name="war" depends="compile">
+  <target name="test" depends="test-compile">
+    <mkdir dir="build/test-reports"/>
+    <jacoco:coverage enabled="${jacoco}" destfile="build/jacoco.exec">
+      <junit printsummary="yes" haltonfailure="yes" fork="true" forkmode="once">
+        <classpath>
+          <fileset dir="lib" includes="*.jar" />
+          <pathelement path="build/classes" />
+          <pathelement path="build/test-classes" />
+        </classpath>
+        <formatter type="xml"/>
+        <formatter type="plain"/>
+        <batchtest fork="yes" todir="build/test-reports">
+          <fileset dir="test">
+            <include name="**/*Test*.java"/>
+          </fileset>
+        </batchtest>
+      </junit>
+    </jacoco:coverage>
+  </target>
+
+  <target name="jacoco">
+    <property name="jacoco" value="true"/>
+  </target>
+
+  <target name="jacoco-report" depends="test">
+    <jacoco:report>
+      <executiondata>
+        <file file="build/jacoco.exec"/>
+      </executiondata>
+      <structure name="Test Project">
+        <classfiles>
+          <fileset dir="build/classes"/>
+        </classfiles>
+        <sourcefiles>
+          <fileset dir="src"/>
+        </sourcefiles>
+      </structure>
+      <html destdir="build/jacoco-report"/>
+    </jacoco:report>
+  </target>
+
+	<target name="war" depends="test">
 		<war destfile="${build}/${ant.project.name}-${version}.war"
 			webxml="${webxml}">
 			<fileset dir="${web}" />
@@ -44,5 +99,4 @@
 			<classes dir="${classes}" />
 		</war>
 	</target>
-
 </project>
