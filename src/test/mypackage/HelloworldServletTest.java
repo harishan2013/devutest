@@ -30,6 +30,6 @@ public class HelloworldServletTest {
         PrintWriter writer = new PrintWriter(out);       
 
         servlet.doGet(request, response);
-        assertEquals("Hello, world", new String( out.toByteArray(), "UTF-8"));
+        assertEquals("Hello", new String( out.toByteArray(), "UTF-8"));
     }
 }

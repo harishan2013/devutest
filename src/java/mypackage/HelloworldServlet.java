@@ -28,7 +28,7 @@ public class HelloworldServlet extends HttpServlet {
 			resp.getWriter().print(json);
 		} else {
 			resp.setContentType("text/plain");
-			resp.getWriter().println("Hello, world");
+			resp.getWriter().println("Hello");
 		}
 	}
 }
