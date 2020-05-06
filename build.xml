@@ -1,4 +1,4 @@
-<project name="helloworld" default="war">
+<project name="helloworld" default="war" xmlns:jacoco="antlib:org.jacoco.ant">
 	<property name="src" location="src/java" />
 	<property name="libcompile" location="lib/compile" />
 	<property name="libruntime" location="lib/runtime" />
@@ -10,6 +10,10 @@
 	<property name="version" value="0.1-dev" />
 	<property name="source" value="1.7" />
 	<property name="target" value="1.7" />
+	
+	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+    <classpath path="lib/jacoco/jacocoant.jar"/>
+  </taskdef>
 
 	<path id="classpath">
 		<fileset dir="${libcompile}">
