@@ -27,8 +27,7 @@ public class HelloworldServletTest {
     @Test
     public void testDoGet() throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintWriter writer = new PrintWriter(out);
-        when(response.getWriter()).thenReturn(writer);
+        PrintWriter writer = new PrintWriter(out);       
 
         servlet.doGet(request, response);
         assertEquals("Hello, world", new String( out.toByteArray(), "UTF-8"));
