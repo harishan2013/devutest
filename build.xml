@@ -57,7 +57,7 @@
 
   <target name="test" depends="test-compile">
     <mkdir dir="build/test-reports"/>
-    <jacoco:coverage enabled="${jacoco}" destfile="build/jacoco.exec">
+    <jacoco:coverage enabled="${jacoco}" destfile="lib/jacoco.exec">
       <junit printsummary="yes" haltonfailure="yes" fork="true" forkmode="once">
         <classpath>
           <fileset dir="lib" includes="*.jar" />
@@ -84,10 +84,11 @@
     <property name="jacoco" value="true"/>
   </target>
 
-  <target name="jacoco-report" depends="test">
+  <target name="jacoco-report" depends="jar">
+  <mkdir dir="build/jacoco-report"/>
     <jacoco:report>
       <executiondata>
-        <file file="build/jacoco.exec"/>
+        <file file="lib/jacoco.exec"/>
       </executiondata>
       <structure name="Test Project">
         <classfiles>
@@ -101,7 +102,7 @@
     </jacoco:report>
   </target>
 
-	<target name="war" depends="test">
+	<target name="war" depends="jacoco-report">
 		<war destfile="${build}/${ant.project.name}-${version}.war"
 			webxml="${webxml}">
 			<fileset dir="${web}" />
