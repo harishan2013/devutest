@@ -84,7 +84,7 @@
     <property name="jacoco" value="true"/>
   </target>
 
-  <target name="jacoco-report" depends="jar">
+  <target name="jacoco-report" depends="test">
   <mkdir dir="build/jacoco-report"/>
     <jacoco:report>
       <executiondata>
